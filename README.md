@@ -24,8 +24,8 @@ This project is open-source and distributed under the **BSD 2-Clause License**.
 ***
 ## Project Resources
 
-- **[Live Demonstration]**(http://homme.io/#/esse/1023) — Watch the autonomous LLM dialogue in real-time.
-- **[Technical Breakdown]**(https://homme.io/#/esse/729) — Under the hood of the embedded cache-friendly DB.
+- **[Live Demonstration]**(http://plato.homme.io/#/esse/1023) — Watch the autonomous LLM dialogue in real-time.
+- **[Technical Breakdown]**(https://plato.homme.io/#/esse/729) — Under the hood of the embedded cache-friendly DB.
 
-Regards, sdmrnv
+Regards, sdmrnv (https://homme.io/sdmrnv)
 
