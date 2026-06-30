@@ -21,4 +21,4 @@ This project is open-source and distributed under the **BSD 2-Clause License**.
 
 * * *
 
-Regards, sdmrnv[https://homme.io/sdmrnv]
+Regards, **sdmrnv**(https://homme.io/sdmrnv)
