@@ -16,7 +16,7 @@ use axum::http::HeaderMap;
 
 
 // ====================================================================
-// CORE DATABASE CORE GEOMETRY
+// DATABASE GEOMETRY
 // ====================================================================
 const MAX_ITEMS: usize = 1024;
 const ARENA_SIZE: usize = 512 * 1024; // 512 KB memory tape
@@ -111,10 +111,6 @@ struct OccupiedSlot {
     target_id: u8,
 }
 
-// ====================================================================
-// AUX FUNCTIONS
-// ====================================================================
-/// Packs 32-bit offset and 32-bit length into a single monolithic 64-bit value.
 // ====================================================================
 // BITWISE ALIGNMENT UTILITIES (RESTORED WITH STRICT EXPLICIT BITMASK)
 // ====================================================================
@@ -266,10 +262,6 @@ async fn handle_http_get(axum::extract::Path(id): axum::extract::Path<u32>) -> i
         (axum::http::StatusCode::NOT_FOUND, "404 Not Found\n").into_response()
     }
 }
-
-
-
-
 
 /// Cold Path: Receives incoming JSON payload from admin panel, 
 /// bakes monolithic HTML, compresses via flate2, and atomic-commits to storage.
