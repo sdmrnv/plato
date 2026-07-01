@@ -419,7 +419,7 @@ fn save_to_disk() -> Result<(), std::io::Error> {
     use std::fs::File;
     use std::io::Write;
 
-    let mut file = File::create("/srv/plato/db.bin")?;
+    let mut file = File::create("<your work dir>/<your db name>")?;
 
     unsafe {
         // 1. Cast the entire 8 KB JUMP_TABLE atomic array straight to a byte slice
@@ -446,7 +446,7 @@ fn save_to_disk() -> Result<(), std::io::Error> {
     }
 
     file.sync_all()?;
-    println!("Database dumped to disk (/srv/plato/db.bin).");
+    println!("Database dumped to disk (<your work dir>/<your db name>).");
     Ok(())
 }
 
@@ -455,12 +455,12 @@ fn load_from_disk() -> Result<(), std::io::Error> {
     use std::fs::File;
     use std::io::Read;
 
-    if !std::path::Path::new("/srv/plato/db.bin").exists() {
+    if !std::path::Path::new("<your work dir>/<your db name>").exists() {
         println!("No storage file found. Starting with an empty database.");
         return Ok(());
     }
 
-    let mut file = File::open("/srv/plato/db.bin")?;
+    let mut file = File::open("<your work dir>/<your db name>")?;
     unsafe {
         // 1. Read the 8 KB primary index jump table straight to L1 Cache
         let index_bytes = std::slice::from_raw_parts_mut(
@@ -1140,8 +1140,8 @@ fn extract_plato_content_payload(html: &str) -> Option<&str> {
 
 
 //Monolithic static single-page framework layout embedded directly into read-only memory
-//const SVELTE_FRONTEND_UI: &str = include_str!("/srv/plato/index.html");
-const SVELTE_FRONTEND_UI: &[u8] = include_bytes!("/srv/plato/index.html.gz");
+//const SVELTE_FRONTEND_UI: &str = include_str!("<your work dir>/<your db name>/index.html");
+const SVELTE_FRONTEND_UI: &[u8] = include_bytes!("<your work dir>/<your db name>/index.html.gz");
 
 // ====================================================================
 // CORE HIGH-SPEED ROOT ROUTER HANDLER
