@@ -1,0 +1,24 @@
+[Unit]
+Description=Plato Web Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nobody
+AmbientCapabilities=CAP_SYS_NICE CAP_SYS_RESOURCE
+LimitNOFILE=65535
+PrivateTmp=true
+NoNewPrivileges=yes
+ExecStart=/usr/local/bin/platonic
+WorkingDirectory=<your working/project dir>
+Restart=always
+CPUAffinity=0
+Nice=-20
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=50
+OOMScoreAdjust=-1000
+
+[Install]
+WantedBy=multi-user.target
